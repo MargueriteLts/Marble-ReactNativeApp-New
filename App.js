@@ -8,15 +8,17 @@ import { AuthState } from './src/AuthState'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import * as Unicons from '@iconscout/react-native-unicons';
 
-import HomeScreen from './src/screens/HomeScreen'
-import SignInScreen from './src/screens/SignInScreen'
-import SignUpScreen from './src/screens/SignUpScreen'
-import ProfileScreen from './src/screens/ProfileScreen'
+import MapScreen from "./src/screens/MapScreen.js";
+import SearchScreen from "./src/screens/SearchScreen.js";
+import CreateSenotafStack from "./src/navigation/CreateSenotafStack.js";
+import ProfilScreen from "./src/screens/ProfilScreen.js";
 
 
 // import { apiUrl } from './src/const'
-const Stack = createNativeStackNavigator()
+const Tab = createBottomTabNavigator();
 
 
 export default App = () => {
@@ -109,12 +111,53 @@ export default App = () => {
   return (
       <AuthState>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen}/>
-          <Stack.Screen name="SignIn" component={SignInScreen} />
-          <Stack.Screen name="SignUp" component={SignUpScreen} />
-          <Stack.Screen name="Profile" component={ProfileScreen} />
-        </Stack.Navigator>
+        <Tab.Navigator initialRouteName="HomeMap"
+          screenOptions={{
+            headerShown: false,
+            tabBarActiveTintColor: "white",
+            tabBarStyle: { backgroundColor: "#0D0D0D" },
+          }}
+          inactiveColor="#5E5E5E"
+        >
+          <Tab.Screen name="HomeMap" component={MapScreen}
+            options={{
+              tabBarLabel: "Карта",
+              tabBarIcon: ({ color }) => (
+                <Unicons.UilMapMarker color={color} size={24} />
+                ),
+              }}
+          />
+          <Tab.Screen name="Поиск" component={SearchScreen}
+            options={{
+              headerShown: true,
+              tabBarLabel: "Поиск",
+              tabBarIcon: ({ color }) => (
+                <Unicons.UilSearch color={color} size={24} />
+              ),
+            }}
+          />
+
+          <Tab.Screen
+            name="Добавить ценотав"
+            component={CreateSenotafStack}
+            options={{
+              headerShown: false,
+              tabBarLabel: "Добавить ценотав",
+              tabBarIcon: ({ color }) => (
+                <Unicons.UilPlus color={color} size={24} />
+              ),
+            }}
+          />
+          
+          <Tab.Screen name="Профиль" component={ProfilScreen}
+            options={{
+              tabBarLabel: "Профиль",
+              tabBarIcon: ({ color }) => (
+                <Unicons.UilUser color={color} size={24} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
       </NavigationContainer>
       </AuthState>
   )

@@ -14,7 +14,7 @@ import { AsyncStorage } from '@react-native-async-storage/async-storage'
 // }
 
 
-const HomeScreen = ({ navigation, route }) => {
+const MapScreen = ({ navigation, route }) => {
   const [isLoading, setLoading] = useState(true)
   const { token, setToken } = useContext(AuthContext)
 
@@ -106,27 +106,21 @@ const HomeScreen = ({ navigation, route }) => {
 
   return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
-          title="Sign In"
-          onPress={() => navigation.navigate('SignIn')}
-        />
-      
-        <Button
-          title="Sign Up"
-          onPress={() => navigation.navigate('SignUp')}
-        />
-
-        <Button
-          title="Profile"
-          onPress={() => navigation.navigate('Profile')}
-        />
-
-        <Text> {token === '' ? '' : 'Token: ' + token} </Text>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: "#0D0D0D",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: "#fff" }}>Map screen</Text>
+        </View>
       </View>
   )
 }  
 
-export default HomeScreen
+export default MapScreen
 
 //////////////////////////////////////////////////////////////////////////////
 // const someData = {data: "Hello at home screen"}
