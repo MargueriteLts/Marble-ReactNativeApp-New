@@ -16,7 +16,6 @@ import { AsyncStorage } from '@react-native-async-storage/async-storage'
 import SignInScreen from './SignInScreen';
 import SignUpScreen from './SignUpScreen';
 
-
 const HomeAuth = ({ navigation, route }) => {
   const [isLoading, setLoading] = useState(true)
   const { token, setToken } = useContext(AuthContext)
@@ -105,13 +104,11 @@ const HomeAuth = ({ navigation, route }) => {
 
     // </AuthContext.Provider>
 
-
-
   return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title="Sign In"
-          onPress={() => navigation.navigate('AuthStack', { screen: 'SignIn' })}
+          onPress={() => navigation.navigate('SignIn')}
         />
       
         <Button

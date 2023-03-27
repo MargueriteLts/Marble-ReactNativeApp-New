@@ -8,11 +8,11 @@ import SignUpScreen from '../screens/SignUpScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function AuthStack() {
+export default function Auth() {
     return (
-        <Stack.Navigator initialRouteName='Authentification home'>
-            <Stack.Screen options={{headerShown: false}} name="Authentification home" component={HomeAuth} />
-            <Stack.Screen options={{headerShown: false}} name="SignIn" component={SignInScreen} />
+        <Stack.Navigator initialRouteName='AuthentificationHome'>
+            <Stack.Screen options={{headerShown: false}} name="AuthentificationHome" component={HomeAuth} />
+            <Stack.Screen name="SignIn" component={SignInScreen} />
             <Stack.Screen options={{headerShown: false}} name="SignUp" component={SignUpScreen} />
         </Stack.Navigator>
     );

@@ -109,7 +109,7 @@ export default App = () => {
   // let showComponents = true
   
   return (
-      <AuthState>
+    <AuthState>
       <NavigationContainer>
         <Tab.Navigator initialRouteName="HomeMap"
           screenOptions={{
@@ -159,6 +159,6 @@ export default App = () => {
           />
         </Tab.Navigator>
       </NavigationContainer>
-      </AuthState>
+    </AuthState>
   )
 }
